@@ -7,17 +7,12 @@ from odoo import api, fields, models
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
 
-    margin = fields.Float(
-        compute="_compute_margin", digits="Product Price", store=True, string="Margin"
-    )
+    margin = fields.Float(compute="_compute_margin", digits="Product Price", store=True)
     margin_signed = fields.Float(
-        compute="_compute_margin",
-        digits="Product Price",
-        store=True,
-        string="Margin Signed",
+        compute="_compute_margin", digits="Product Price", store=True
     )
     margin_percent = fields.Float(
-        string="Margin (%)", compute="_compute_margin", store=True, readonly=True
+        string="Margin (%)", compute="_compute_margin", store=True
     )
     purchase_price = fields.Float(
         string="Cost",
